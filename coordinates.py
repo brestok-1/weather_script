@@ -10,15 +10,37 @@ class Coordinates(NamedTuple):
     longitude: float
 
 
-def get_coordinates() -> Coordinates:  # -> tuple[float, float]:  Defines what type of data the function should return
+def get_coordinates() -> Coordinates:
     """Returns current coordinates """
+    coordinates = _get_geocoder_coordinates()
+    return _round_coordinates(coordinates)
+
+
+def _get_geocoder_coordinates() -> Coordinates:
+    geocoder_output = _get_geocoder_output()
+    coordinates = _parse_coordinate(geocoder_output)
+    return coordinates
+
+
+def _get_geocoder_output() -> [float, float]:
     location = geocoder.ip('me')
     if not location.status_code == 200:
         raise CantGetCoordinates
-    latitude, longitude = location.latlng
-    if config.USE_ROUNDED_COORDS:
-        latitude, longitude = map(lambda x: round(x, 1), [latitude, longitude])
+    return location.latlng
+
+
+def _parse_coordinate(output: [float, float]) -> Coordinates:
+    try:
+        latitude, longitude = output
+    except ValueError:
+        raise CantGetCoordinates
     return Coordinates(latitude=latitude, longitude=longitude)
+
+
+def _round_coordinates(coordinates: Coordinates) -> Coordinates:
+    if not config.USE_ROUNDED_COORDS:
+        return coordinates
+    return Coordinates(*map(lambda x: round(x, 1), [coordinates.latitude, coordinates.longitude]))
 
 
 if __name__ == '__main__':
