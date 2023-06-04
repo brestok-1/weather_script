@@ -16,13 +16,13 @@ Celsius = int
 
 
 class WeatherType(Enum):
-    THUNDERSTORM = 'Гроза'
-    DRIZZLE = 'Изморозь'
-    RAIN = 'Дождь'
-    SNOW = 'Снег'
-    CLEAR = 'Ясно'
-    FOG = 'Туман'
-    CLOUDS = 'Облачно'
+    THUNDERSTORM = 'Storm'
+    DRIZZLE = 'Drizzle'
+    RAIN = 'Rain'
+    SNOW = 'Snow'
+    CLEAR = 'Clear'
+    FOG = 'Fog'
+    CLOUDS = 'Cloudy'
 
 
 @dataclass(slots=True, frozen=True)
@@ -100,4 +100,4 @@ def _parse_city(openweather_dict: dict) -> str:
 
 
 if __name__ == "__main__":
-    print(get_weather(Coordinates(latitude=55.7, longitude=37.6)))
+    print(get_weather(Coordinates(latitude=52.0975500, longitude=23.6877500)))
