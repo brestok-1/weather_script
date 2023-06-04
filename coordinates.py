@@ -1,7 +1,8 @@
 from typing import NamedTuple
+import geocoder
 
-
-# from dataclasses import dataclass
+import config
+from exceptions import CantGetCoordinates
 
 
 class Coordinates(NamedTuple):
@@ -11,8 +12,19 @@ class Coordinates(NamedTuple):
 
 def get_coordinates() -> Coordinates:  # -> tuple[float, float]:  Defines what type of data the function should return
     """Returns current coordinates """
-    return Coordinates(latitude=0.0, longitude=0.0)
+    location = geocoder.ip('me')
+    if not location.status_code == 200:
+        raise CantGetCoordinates
+    latitude, longitude = location.latlng
+    if config.USE_ROUNDED_COORDS:
+        latitude, longitude = map(lambda x: round(x, 1), [latitude, longitude])
+    return Coordinates(latitude=latitude, longitude=longitude)
 
+
+if __name__ == '__main__':
+    print(get_coordinates())
+
+# from dataclasses import dataclass
 
 # 2)
 # def get_gps_coordinates() -> dict[Literal['latitude'] | Literal['longitude'], float]
