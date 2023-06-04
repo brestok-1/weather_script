@@ -1,18 +1,19 @@
 import json
 import ssl
-import urllib
 from dataclasses import dataclass
 from datetime import datetime
 from json import JSONDecodeError
 from typing import Literal
 from enum import Enum
 from urllib.error import URLError
+from urllib.request import urlopen
 
 import config
 from coordinates import Coordinates
 from exceptions import ApiServiceError
 
-Celsius = int
+Celsius = float
+
 
 
 class WeatherType(Enum):
@@ -48,7 +49,7 @@ def _get_openweather_response(latitude: float, longitude: float) -> str:
     url = config.OPENWEATHER_URL.format(
         latitude=latitude, longitude=longitude)
     try:
-        return urllib.request.urlopen(url).read()
+        return urlopen(url).read()
     except URLError:
         raise ApiServiceError
 

@@ -1,5 +1,5 @@
-from typing import NamedTuple
-import geocoder
+from typing import NamedTuple, Sequence
+import geocoder  # type: ignore
 
 import config
 from exceptions import CantGetCoordinates
@@ -22,14 +22,14 @@ def _get_geocoder_coordinates() -> Coordinates:
     return coordinates
 
 
-def _get_geocoder_output() -> [float, float]:
+def _get_geocoder_output() -> Sequence[float]:
     location = geocoder.ip('me')
     if not location.status_code == 200:
         raise CantGetCoordinates
     return location.latlng
 
 
-def _parse_coordinate(output: [float, float]) -> Coordinates:
+def _parse_coordinate(output: Sequence[float]) -> Coordinates:
     try:
         latitude, longitude = output
     except ValueError:
