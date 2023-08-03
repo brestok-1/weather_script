@@ -58,6 +58,6 @@ class JSONFileWeatherStorage:
             json.dump(history, f, ensure_ascii=False, indent=4)
 
 
-def save_weather(weather: Weather, storage: WeatherStorage) -> None:
+def save_weather(weather: Weather, storage: JSONFileWeatherStorage | WeatherStorage) -> None:
     """Saves weather in the storage"""
     storage.save(weather)

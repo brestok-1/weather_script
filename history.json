@@ -2,5 +2,13 @@
     {
         "date": "2023-06-04 23:01:05.783565",
         "weather": "Trishin, the temperature is 17 °C, Cloudy\nSunrise: 05:08\nSunset: 21:37\n"
+    },
+    {
+        "date": "2023-06-06 16:16:16.584947",
+        "weather": "Trishin, the temperature is 25 °C, Cloudy\nSunrise: 05:06\nSunset: 21:39\n"
+    },
+    {
+        "date": "2023-08-04 01:23:53.652968",
+        "weather": "Брест, the temperature is 16 °C, Cloudy\nSunrise: 05:50\nSunset: 21:12\n"
     }
 ]

@@ -18,6 +18,7 @@ def main():
         weather = get_weather(coordinates)
     except ApiServiceError:
         print(f"Couldn't get weather by coordinates {coordinates}")
+        exit()
     print(format_weather(weather))
     save_weather(
         weather,

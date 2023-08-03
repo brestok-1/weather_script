@@ -15,7 +15,6 @@ from exceptions import ApiServiceError
 Celsius = float
 
 
-
 class WeatherType(Enum):
     THUNDERSTORM = 'Storm'
     DRIZZLE = 'Drizzle'
