@@ -6,9 +6,10 @@
 
 <br/>
 
-My weather script, by entering the weather command, instantly displays the current temperature, the presence of
-precipitation, the time of sunrise and sunset according to your geolocation.
-In addition, it saves the data in a txt or json file.
+I watched a video on how to improve the quality of my code. After watching it, I tried to put the acquired skills into
+practice. I wrote a script that shows it instantly, defining it globally, so I can call it from any directory. I tried
+to document the code as much as possible, apply typing, break functions into auxiliary functions and follow the rule
+of good code.
 
 ## Description
 
@@ -17,10 +18,9 @@ In addition, it saves the data in a txt or json file.
 </div>
 <br/>
 
-My project is a full-fledged bot created to read books directly from telegram. You can select a book, flip through the
-pages, go to the table of contents and select the desired page there, add pages to bookmarks, click on them and delete
-them. There are also convenient commands for going to the beginning of the book or continuing reading from the place
-where you finished.
+My weather script, by entering the weather command, instantly displays the current temperature, the presence of
+precipitation, the time of sunrise and sunset according to your geolocation. In addition, it saves the data in a txt or
+json file.
 
 ## Technologies
 
