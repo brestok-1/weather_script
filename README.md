@@ -46,7 +46,7 @@ saving the results in TXT and JSON formats.
 
 ## Project setup
 
-***Method 2: Via virtual environment***
+***Via virtual environment***
 
 1. Create and activate a python virtual environment
 2. In the terminal, enter the following command:
@@ -55,6 +55,8 @@ saving the results in TXT and JSON formats.
 pip3 install -r requirements.txt
 ```
 
-3. Run the file weather
+3. Create a .env file and paste the data from the .env.example file into it
+4. Sign up to OpenWeather service and add your API key into .env file
+5. Run the "weather" file
 
-## <div align="center">Thank you for taking the time to review my project. Enjoy reading!👋</div>
+## <div align="center">Sunny weather for you!👋</div>
