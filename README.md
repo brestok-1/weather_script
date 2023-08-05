@@ -38,11 +38,11 @@ json file.
 
 ![Openweather](https://img.shields.io/badge/-Openweather-1C1C1C?&style=for-the-badge)
 
-I wrote a python bot using aiogram. I used two databases: Postgresql for storing user data, books and bookmarks, and
-Redis for caching data and optimizing work. The bot takes data about books via API from
-a [third-party service](https://github.com/brestok-1/drf-tg-data) and stores
-them in the database. With the help of the Aiocron library, the database is updated every hour. I also connected an
-alembic to initialize the database and create migrations
+The primary task was to obtain the longitude and latitude of the user, for which I used the geocoder library that
+retrieves coordinates based on IP. Next, I passed the obtained data to an API request to the OpenWeather service, which
+returns weather information in JSON format. Then, I parsed the JSON string and extracted the temperature, sunrise and
+sunset times, precipitation, and displayed the obtained data in the console. Finally, I decided to add functions for
+saving the results in TXT and JSON formats.
 
 ## Project setup
 
